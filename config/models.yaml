@@ -1,0 +1,156 @@
+# =============================================================================
+# MODEL CONFIGURATION
+# =============================================================================
+
+version: "1.0.0"
+last_updated: "2025-12-11"
+
+# -----------------------------------------------------------------------------
+# AVAILABLE MODELS
+# -----------------------------------------------------------------------------
+models:
+  # Flash models - Fast and cost-effective
+  gemini-2. 5-flash:
+    name: "Gemini 2.5 Flash"
+    identifier: "gemini-2.5-flash"
+    tier: "flash"
+    context_window: 1000000
+    max_output_tokens: 8192
+    supports_vision: true
+    supports_audio:  true
+    supports_video: true
+    cost_tier: "low"
+    recommended_for: 
+      - "summarization"
+      - "quick_extraction"
+      - "classification"
+      - "ocr"
+    
+  gemini-2.0-flash:
+    name: "Gemini 2.0 Flash"
+    identifier: "gemini-2.0-flash"
+    tier: "flash"
+    context_window: 1000000
+    max_output_tokens: 8192
+    supports_vision: true
+    supports_audio: true
+    supports_video:  true
+    cost_tier: "low"
+    recommended_for: 
+      - "general_purpose"
+      - "rapid_processing"
+
+  gemini-1.5-flash:
+    name: "Gemini 1.5 Flash"
+    identifier: "gemini-1.5-flash"
+    tier: "flash"
+    context_window: 1000000
+    max_output_tokens:  8192
+    supports_vision: true
+    supports_audio:  true
+    supports_video: true
+    cost_tier: "low"
+    recommended_for: 
+      - "legacy_support"
+
+  # Pro models - Balanced performance
+  gemini-2.5-pro:
+    name: "Gemini 2.5 Pro"
+    identifier: "gemini-2.5-pro"
+    tier: "pro"
+    context_window: 2000000
+    max_output_tokens: 16384
+    supports_vision: true
+    supports_audio: true
+    supports_video:  true
+    cost_tier: "medium"
+    recommended_for: 
+      - "complex_analysis"
+      - "detailed_extraction"
+      - "multi_document"
+      - "reasoning"
+
+  gemini-1.5-pro:
+    name: "Gemini 1.5 Pro"
+    identifier:  "gemini-1.5-pro"
+    tier: "pro"
+    context_window: 2000000
+    max_output_tokens: 8192
+    supports_vision: true
+    supports_audio: true
+    supports_video: true
+    cost_tier: "medium"
+    recommended_for:
+      - "long_documents"
+      - "detailed_analysis"
+
+  # Placeholder for future models
+  gemini-3.0-pro:
+    name: "Gemini 3.0 Pro (Placeholder)"
+    identifier: "gemini-3.0-pro"
+    tier: "pro"
+    context_window: 2000000
+    max_output_tokens:  32768
+    supports_vision: true
+    supports_audio: true
+    supports_video: true
+    cost_tier: "medium"
+    status: "placeholder"
+    recommended_for: 
+      - "agentic_workflows"
+      - "advanced_reasoning"
+
+  gemini-ultra:
+    name: "Gemini Ultra (Placeholder)"
+    identifier: "gemini-ultra"
+    tier: "ultra"
+    context_window: 2000000
+    max_output_tokens: 32768
+    supports_vision: true
+    supports_audio: true
+    supports_video: true
+    cost_tier: "high"
+    status: "placeholder"
+    recommended_for:
+      - "most_complex_tasks"
+      - "highest_accuracy"
+
+# -----------------------------------------------------------------------------
+# DEFAULT CONFIGURATIONS
+# -----------------------------------------------------------------------------
+defaults: 
+  model: "gemini-2.5-flash"
+  temperature: 0.7
+  max_output_tokens: 8192
+  top_p: 0.95
+  top_k: 40
+
+# Task-specific defaults
+task_defaults:
+  summarize:
+    model: "gemini-2.5-flash"
+    temperature: 0.5
+  
+  extract_data:
+    model: "gemini-2.5-pro"
+    temperature: 0.2
+  
+  analyze: 
+    model: "gemini-2.5-pro"
+    temperature: 0.4
+  
+  question_answer:
+    model: "gemini-2.5-flash"
+    temperature: 0.3
+  
+  classify:
+    model: "gemini-2.5-flash"
+    temperature: 0.1
+  
+  compare:
+    model: "gemini-2.5-pro"
+    temperature: 0.3
+  
+  translate:
+    model: "gemini-2.5-pro"
+    temperature: 0.3
